@@ -2,8 +2,10 @@
 ################################################################################
 # Author:  Bhlynd
 # Program: Install Nimiq on Ubuntu
-# Flavor: Porky Pool (https://www.porkypool.com)
+# Flavor: Nimbus (https://www.nimbus.fun)
 ################################################################################
+TAR_FILE="https://bitbucket.org/bertramtruong/nimiq-consensus/raw/master/main-full-consensus.tar.gz"
+
 output() {
   printf "\E[0;33;40m"
   echo $1
@@ -42,7 +44,7 @@ output " "
 output " "
 output "Please double check before hitting enter! You only have one shot at these!"
 output " "
-read -e -p "Enter the pool URL: " -i "us-east.porkypool.com:8444" POOL
+read -e -p "Enter the pool URL: " -i "pool.nimbus.fun:8443" POOL
 read -e -p "Enter the miner CPU threads: " -i $(getconf _NPROCESSORS_ONLN) THREADS
 read -e -p "Enter your wallet address: " WALLET
 read -e -p "Enter device label: " EXTRADATA
@@ -113,7 +115,7 @@ output " "
 sleep 3
 
 if [ ! -d "./main-full-consensus" ]; then
-  wget https://github.com/ryan-rowland/Nimiq-Install-Script/raw/master/main-full-consensus.tar.gz
+  wget $TAR_FILE
   tar -xvf main-full-consensus.tar.gz
   rm main-full-consensus.tar.gz
 fi
