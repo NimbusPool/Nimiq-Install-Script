@@ -79,7 +79,7 @@ output "Downloading Nimiq core."
 output " "
 sleep 3
 
-git clone https://github.com/ryan-rowland/core.git
+git clone https://github.com/NimbusPool/core
 
 output " "
 output "Building Nimiq core client."
